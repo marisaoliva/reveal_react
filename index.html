@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>React js</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -41,339 +41,565 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
-					</p>
+					<h2>Introducción a React y Redux!</h2>
+					<h4>Miércoles 20 de junio: ReactJS</h4>
+					<h4>Miércoles 27 de junio: Redux </h3>
+
 				</section>
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
-
-				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
+						<h1>Introducción</h1>
 					</section>
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="https://slides.com" target="_blank">https://slides.com</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
+						<h2>¿Que es react js?</h2>
+						<p class="fragment" data-fragment-index="0">Es una libreria</p>
+						<p class="fragment" data-fragment-index="0">Creada y mantenida por Facebook</p>
+						<p class="fragment" data-fragment-index="1">Licencia Facebook BSD+Patents</p>
+						<p class="fragment" data-fragment-index="2">Completamente OpenSource desde 2017, Licencia MIT</p>
 						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
+							licencia Facebook BSD+Patents no le gustó a Apache Software Foundation (ASF) es una comunidad descentralizada de desarrolladores de software que trabajan en sus propios proyectos de código abierto
+
+							El 22 de Septiembre de 2017 Facebook en un comunicado oficial anunció que tomaron la decisión de relicenciar sus proyectos open source React, Jest, Flow, e Immutable.js bajo la licencia MIT, porque como te mencione arriba Facebook esta muy a favor de aportar en proyectos open source para web y no pretenden que se pierda todo el avance que llevan años construyendo por asuntos que no son técnicos.
+						</aside>
+					</section>
+                    <section>
+                        <h2>Ecosistema de React</h2>
+                        <img src='img/ecosistemaReact.png'>
+                    </section>
+					<section>
+						<h2>Programación orientada a componentes</h2>
+						<h5>Reutilizables</h5>
+						<h5>Componibles</h5>
+						<h5>Se encarga de la presentación</h5>
+						<h5>No orientado a objetos</h5>
+					</section>
+					<section>
+						<h2>El componente React</h2>
+						<pre><code data-trim data-noescape>
+							import React from "react";
+							import Display from "./Display";
+							import ButtonPanel from "./ButtonPanel";
+							import calculate from "../logic/calculate";
+							import "./App.css";
+
+							class App extends React.Component {
+							  constructor(props) {
+							    super(props);
+							    this.state = {
+							      total: null,
+							      next: null,
+							      operation: null,
+							    };
+							  }
+
+							  handleClick = buttonName => {
+							    this.setState(calculate(this.state, buttonName));
+							  };
+
+							  render() {
+							    return (
+								&lt;div className=&quot;component-app&quot;&gt;
+									&lt;Display value={this.state.next || this.state.total || &quot;0&quot;} /&gt;
+									&lt;ButtonPanel clickHandler={this.handleClick} /&gt;
+								&lt;/div&gt;
+							    );
+							  }
+							}
+							export default App;
+							</code></pre>
+					</section>
+					<section>
+						<h2>Crear una aplicación</h2>
+						<pre><code data-trim data-noescape>
+						npx create-react-app my-app
+						cd my-app
+						npm start
+						</code></pre>
+							<p>Fuente: <a href='https://github.com/facebook/create-react-app'>https://github.com/facebook/create-react-app</a></p>
+						<aside class="notes">
+							Si contamos con la versión 5.6 de npm o superior, podremos hacer uso de npx, un comando que se utiliza de forma idéntica a npm con el que podremos descargar y ejecutar paquetes sin tener que instalarlos en el sistema.
 						</aside>
 					</section>
 					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment fade-up">fade-up (also down, left and right!)</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
+						<h2>Estructura del proyecto</h2>
+						<pre><code data-trim data-noescape>
+						my-app/
+						  README.md
+						  node_modules/
+						  package.json
+						  public/
+						    index.html
+						    favicon.ico
+						  src/
+						    App.css
+						    App.js
+						    App.test.js
+						    index.css
+						    index.js
+						    logo.svg
+						</code></pre>
 					</section>
 				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
 				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
+					<section>
+						<h1>Filosofia REACT JS</h1>
+					</section>
+					<section>
+						<h2>Programación declarativa</h2>
+						<h5>Pasiva, no imperativa</h5>
+						<h5>Segura frente a errores</h5>
+						<h5>Buena para programar interfaces de usuario</h5>
+						<aside class="notes">
+							La Programación Declarativa, en contraposición a la Programación Imperativa es un paradigma de programación que está basado en el desarrollo de programas especificando o "declarando" un conjunto de condiciones, proposiciones, afirmaciones, restricciones, ecuaciones o transformaciones que describen el problema y detallan su solución.
+						</aside>
+					</section>
+					<section>
+						<h2>Programación funcional</h2>
+						<h5>Basada en funciones</h5>
+						<h5>Independencia de cada componente</h5>
+						<h5>Cada componente guarda su propio estado</h5>
+						<aside class="notes">
+							basada en funciones
+						</aside>
+					</section>
+					<section>
+						<h2>Cada componente guarda su propio estado<h2>
+						<h5>Los componentes no se comunican entre sí</h5>
+						<h5>Si nos vemos en la necesidad de comunicar, lo estamos haciendo mal o estamos creando una librería muy avanzada</h5>
+						<h5>Sólo presentación, la lógica y flujo de datos deben ir a parte (Flux, Redux…)</h5>
+					</section>
+					<section>
+						<h2>No se modifica la DOM solamente se sustituye<h2>
+						<h5>Independencia de jQuery</h5>
+						<h5>Virtual DOM</h5>
+						<img src='img/virtualDOM.png'></img>
+					</section>
+					<section>
+						<h2>Crear componentes</h2>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Entorno</h1>
+					</section>
+					<section>
+						<h2>ES6</h2>
+						<h5>Clases / Objetos</h5>
+						<h5>Arrow function</h5>
+						<h5>Let y const</h5>
+						<h5>async/wait</h5>
+						<h5>Import y export</h5>
+						<h5>Compilado por Babel</h5>
+					</section>
+					<section>
+						<h2>Webpack</h2>
+						<p>Es un empaquetador</p>
+						<pre><code data-trim data-noescape>
+							module.exports = {
+							  resolve: {
+							    extensions: ['', '.js', '.jsx']
+							  },
+							  entry: {
+							    app: ['./index.jsx']
+							  },
+							  output: {
+							    path: './build',
+							    filename: 'app.js',
+							    publicPath: '/build/
+							  },
+							  module: {
+							    loaders: [
+							      {
+							        test: /(\.js|.jsx)$/,
+							        loader: 'babel',
+							        query: {
+							          presets: ['es2015', 'stage-2', 'react']
+							        }
+							      }
+							    ]
+							  }
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Babel</h2>
+						<p>Librería</p>
+						<p>Compilador</p>
+						<p>Compila ES6 (y propuestas) a Javascript compatible con todos los navegadores</p>
+						<p>Usado por Webpack</p>
+						<p>Configurado en .babelrc</p>
+					</section>
+					<section>
+						<h2>JSX</h2>
+						<p>Lenguaje de plantillas</p>
+						<p>Soporte inicial para elementos “HTML”</p>
+					</section>
+					<section>
+						<h2>Eslint</h2>
+						<p>Linter</p>
+						<p>Muy recomendado y muy usado dentro de la comunidad de OPENSOURCE</p>
+					</section>
+					<section>
+						<h2>Redux</h2>
+						<p>Librería de control de flujo de datos, sucesor de flux</p>
+						<ul>Abstrae los datos y su flujo y permite que React simplemente reaccione a sus cambios
+							<li>La comunidad lo aumenta con librerías, algunas de ellas imprescindibles</li>
+							<li>Thunk y sagas para efectos secundarios y llamadas a servicios</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Jest</h2>
+						<p>Librería de testing de facebook</p>
+						<p>Muy similar a otros</p>
+						<p>Específico para React</p>
+						<p>Utiliza snapshot</p>
+					</section>
+					<section>
+						<h2>Node y Yarn</h2>
 						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+							No es obligatorio pero es preferible empaquetar el proyecto como un paquete de Node y gestionar las librerías (incluyendo Webpack, Babel, React y todas las que usemos) con Yarn y NPM
 						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
 					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
+					<section>
+						<h2>Devtools para React y para Redux</h2>
+						<img src='img/reacttools.png'>
 					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
+					<section>
+						<h2>Practicar</h2>
 					</section>
 				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
 				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+					<section>
+						<h1>React JS en profundidad</h1>
+					</section>
+					<section>
+						<h2>Componentes y composición</h2>
+						<p>Fuente: <a href='https://github.com/ahfarmer/calculator'>https://github.com/ahfarmer/calculator</a></p>
+						<img src ='img/calculadora.png'>
+					</section>
+					<section>
+						<h2>Componentes y composición</h2>
+						<pre><code data-trim data-noescape>
+							import React from "react";
+						import Display from "./Display";
+						import ButtonPanel from "./ButtonPanel";
+						import calculate from "../logic/calculate";
+						import "./App.css";
 
-    var nodes = document.querySelectorAll( selector );
+						class App extends React.Component {
+						  constructor(props) {
+						    super(props);
+						    this.state = {
+						      total: null,
+						      next: null,
+						      operation: null,
+						    };
+						  }
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+						  handleClick = buttonName => {
+						    this.setState(calculate(this.state, buttonName));
+						  };
 
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+						  render() {
+						    return (
+							&lt;div className=&quot;component-app&quot;&gt;
+							  &lt;Display value={this.state.next || this.state.total || &quot;0&quot;} /&gt;
+							  &lt;ButtonPanel clickHandler={this.handleClick} /&gt;
+							&lt;/div&gt;
+						    );
+						  }
+						}
+						export default App;
+						</code></pre>
+					</section>
+					<section>
+						<h2>Tipos de componentes</h2>
+						<ul>
+							<li>Statefull Component</li>
+							<li>Stateless Component</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Statefull Component</h2>
+						<ul>
+							<li>Se utilizan en clases</li>
+							<li>Tienen un estado</li>
+							<li>Se vuelven a renderizar cuándo se cambian las props y el estado</li>
+							<pre><code data-trim data-noescape>
+							class MiBoton extends React.Component {
+							    constructor(props) {
+							        super(props);
+							        this.state.style = { background: 'blue', color: 'white' };
+							    }
+							    render () {
+							        return (
+							         &lt;button {...this.props} style={this.state.styles} /&gt;
+							        );
+							    }
+							}
+							</code></pre>
+						</ul>
+					</section>
+					<section>
+						<h2>Stateless Component</h2>
+						<ul>
+							<li>Son funciones en vanilla js</li>
+							<li>No tienen estado</li>
+							<li>Solo funcionan a través de las props</li>
+							<li>Componentes tontos e ideales para la reutilización</li>
+							<pre><code data-trim data-noescape>
+								const MiBoton = props => {
+								  const styles = { background: 'blue', color: 'white' }
+
+								  return (
+								    &lt;button
+								      {...props}
+								      style={styles}
+								    /&gt;
+								  )
+								}
+							</code></pre>
+						</ul>
+					</section>
+					<section>
+						<h2>Props</h2>
+						<ul>
+							<li>Se reciben desde fuera del componente</li>
+							<li>Pueden refrescarse y provocan que se llame al render</li>
+							<li>No pueden modificarse</li>
+							<pre><code data-trim data-noescape>
+								class Saludo extends React.Component {
+								  render () {
+								    return &lt;p/&gt;Hola, { this.props.nombre }&lt;p/&gt;
+								  }
+								}
+							</code></pre>
+						</ul>
+					</section>
+					<section>
+						<h2>Props</h2>
+						<dl>
+	  						<dt>PropTypes</dt>
+							<dd>Indica el tipo de la propiedad y si es obligatoria</dd>
+								<pre><code data-trim data-noescape>
+									MiBoton.propTypes = {
+	  									texto: React.PropTypes.string.isRequired
+									};
+								</code></pre>
+							<dt>defaultProps</dt>
+							<dd>Valores por defecto</dd>
+								<pre><code data-trim data-noescape>
+									MiBoton.defaultProps = {
+  										texto: "Click me!"
+									};
+								</code></pre>
+						</dl>
+					</section>
+					<section>
+						<h2>State</h2>
+						<ul>
+							<li>Es interno de cada componente</li>
+							<li>al cambiarse provocan que se llame al render</li>
+							<li>Es único de los componentes statefull o clase</li>
+							<pre><code data-trim data-noescape>
+								class Clock extends React.Component {
+								  constructor(props) {
+								    super(props);
+								    this.state = {date: new Date()};
+								  }
+
+								  render() {
+								    return (
+									&lt;div&gt;&lt;h1&gt;Hello, world!&lt;/h1&gt;
+									&lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;&lt;/div&gt;
+								    );
+								  }
+								}
+							</code></pre>
+						</ul>
+					</section>
+					<section>
+						<h2>Children</h2>
+						<p>Es una propiedad especial</p>
+						<pre><code data-trim data-noescape>
+							&lt;HelloWold&gt;Google&lt;/HelloWold&gt;
+						</code></pre>
+						<pre><code data-trim data-noescape>
+							class HelloWold extends Component {
+							  render() {
+							    return (
+							     	Hola {this.props.children}
+							    );
+							  }
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Refs</h2>
+						<ul>
+							<li>Referencias de un componente hijo en el componente padre</li>
+							<li>Permite acceder a los valores y a los métodos del componente</li>
+							<li>Si abusamos algo estamos haciendo mal</li>
+							<pre><code data-trim data-noescape>
+								class AutoFocusTextInput extends React.Component {
+								  componentDidMount() {
+								    this.textInput.current.focusTextInput();
+								  }
+
+								  render() {
+								    return (
+								      &lt;CustomTextInput ref={this.textInput} /&gt;
+								    );
+								  }
+								}
+							</code></pre>
+						</ul>
+					</section>
+					<section>
+						<h2>Eventos</h2>
+						<p>De la manera habitual</p>
+						<pre><code data-trim data-noescape>
+						var InputFormidable = React.createClass({
+							eventoInput: function(event) {
+							// Aquí haremos algo...
+							},
+							render: function() {
+								return (
+									&lt;div&gt;
+										&lt;input type='text' onKeyUp={this.eventoInput} /&gt;
+									&lt;/div&gt;
+								)
+							}
+						});
+						</code></pre>
+					</section>
+					<section>
+						<h2>Ciclo de vida</h2>
+						<img src='img/ciclodevida.png'>
+						willmount y willupate quitado, will
+					</section>
+					<section>
+						<h2>shouldComponentUpdate</h2>
+						<p>Permite verificar si es necesario renderizar el componente</p>
+						<pre><code data-trim data-noescape>
+							React.createClass({
+							  shouldComponentUpdate: function(nextProps, nextState) {
+							    // You can access `this.props` and `this.state` here
+							    // This function should return a boolean, whether the component should re-render.
+							    return false;
+							  },
+
+							  render: function() {
+							    ...
+							  }
+							});
+						</code></pre>
+
+					</section>
+					<section>
+						<h2>Listas</h2>
+						<p>Cuando queremos trabajar con listas necesitamos usar la función map con key</p>
+						<pre><code data-trim data-noescape>
+							function NumberList(props) {
+							  const numbers = props.numbers;
+							  const listItems = numbers.map((number) =>
+							  &lt;li key={number.toString()}&gt;
+								{number}
+							  &lt;/li&gt;
+							  );
+							  return (
+							   &lt;ul&gt;{listItems}&lt;/ul&gt;
+							  );
+							}
+							const numbers = [1, 2, 3, 4, 5];
+							ReactDOM.render(
+							  &lt;NumberList numbers={numbers} &gt;,
+							  document.getElementById('root')
+							);
+						</code></pre>
+
+
+
+					</section>
+					<section>
+						<h2>Estilos</h2>
+						<p>Importando un archivo externo css</p>
+						<pre><code data-trim data-noescape>
+							import React from 'react';
+							import './estilos.css';
+						</code></pre>
+						<p>Asignando clases con className</p>
+						<pre><code data-trim data-noescape>
+							&lt;section className=&quot;pokemon-detail&quot;&gt;
+							    &lt;h2&gt;Pokemon Detail&lt;/h2&gt;
+							    &lt;h3&gt;{pokemon.name}&lt;/h3&gt;
+							&lt;/section&gt;
+						</code></pre>
+
+					</section>
+					<section>
+						<h2>Estilos</h2>
+						<p>Asignar estilos con forma de objeto</p>
+						<pre><code data-trim data-noescape>
+							import React from 'react';
+
+							const estilos = {
+							  fontSize: '18px',
+							  fontWeight: 'bold',
+							  color: 'blue'
+							};
+
+							class Hello extends React.Component {
+							  render() {
+							    return (
+							      &lt;p style={estilos}&gt;Hola Mundo!&lt;/p&gt;
+							    );
+							  }
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Animaciones</h2>
+						<p>con css3</p>
+						<p>Librería oficial React Transition Group</p>
+					</section>
+					<section>
+						<h2>Rutas</h2>
+						<p>Básico para cualquier aplicación</p>
+						<p>Librería React Router</p>
+						<pre><code data-trim data-noescape>
+							import React, { PropTypes } from 'react';
+							import { Provider } from 'react-redux';
+							import { Router, Route, browserHistory } from 'react-router';
+							import App from './App';
+
+							const Root = ({ store }) => (
+							&lt;Provider store={store}&gt;
+								&lt;Router history={browserHistory}&gt;
+								  &lt;Route path=&quot;/(:filter)&quot; component={App} /&gt;
+								&lt;/Router&gt;
+							  &lt;/Provider&gt;
+							);
+
+							Root.propTypes = {
+							  store: PropTypes.object.isRequired,
+							};
+
+							export default Root;
+						</code></pre>
+
+					</section>
+					<section>
+						<h2>i18n</h2>
+						<p>	No hay ninguna API por defecto en el core</p>
+						<p>Una de las más populares es React Intl</p>
+					</section>
 				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
-
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="https://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
-
+			<section>
+				<h1>Continuara...</h1>
+				<img src='img/redux.png' style='width: 50%'>
+			</section>
 			</div>
 
 		</div>
