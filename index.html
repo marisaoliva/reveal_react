@@ -195,9 +195,37 @@
 					<section>
 						<h2>ES6</h2>
 						<h5>Clases / Objetos</h5>
+						<pre><code data-trim data-noescape>
+							class Rectangulo {
 
+							  constructor(alto, ancho){
+							    this.alto = alto;
+							    this.ancho = ancho;
+							  };
+
+							  area(){
+							    return this.alto * this.ancho;
+							  };
+
+						</code></pre>
 						<h5>Arrow function</h5>
+						<pre><code data-trim data-noescape>
+							function suma (x, y){
+								return x + y;
+							};
+
+						</code></pre>
+						<pre><code data-trim data-noescape>
+							suma = (x, y) => { return x + y; };
+
+						</code></pre>
+					</section>
+					<section>
 						<h5>Let y const</h5>
+						<ul>
+							<li>Let: declaración de variables controlando su ambito </li>
+							<li>const: constantes</li>
+						</ul>
 						<h5>async/wait</h5>
 						<h5>Import y export</h5>
 						<h5>Compilado por Babel</h5>
