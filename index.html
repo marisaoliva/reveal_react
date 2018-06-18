@@ -44,7 +44,7 @@
 					<h2>Introducción a React y Redux!</h2>
 					<h4>Miércoles 20 de junio: ReactJS</h4>
 					<h4>Miércoles 27 de junio: Redux </h3>
-
+					<p>Abel Tamayo y Marisa Oliva</p>
 				</section>
 
 				<section>
@@ -53,10 +53,12 @@
 					</section>
 					<section>
 						<h2>¿Que es react js?</h2>
-						<p class="fragment" data-fragment-index="0">Es una libreria</p>
-						<p class="fragment" data-fragment-index="0">Creada y mantenida por Facebook</p>
-						<p class="fragment" data-fragment-index="1">Licencia Facebook BSD+Patents</p>
-						<p class="fragment" data-fragment-index="2">Completamente OpenSource desde 2017, Licencia MIT</p>
+						<ul>
+							<li>Es una librería</li>
+							<li>Creada y mantenida por facebook</li>
+							<li>Licencia Facebook BSD+Patents</li>
+							<li>Completamente OpenSource desde 2017, Licencia MIT</li>
+						</ul>
 						<aside class="notes">
 							licencia Facebook BSD+Patents no le gustó a Apache Software Foundation (ASF) es una comunidad descentralizada de desarrolladores de software que trabajan en sus propios proyectos de código abierto
 
@@ -65,17 +67,19 @@
 					</section>
                     <section>
                         <h2>Ecosistema de React</h2>
-                        <img src='img/ecosistemaReact.png'>
+                        <img src='img/ecosistemaReactjs.png'>
                     </section>
 					<section>
 						<h2>Programación orientada a componentes</h2>
-						<h5>Reutilizables</h5>
-						<h5>Componibles</h5>
-						<h5>Se encarga de la presentación</h5>
-						<h5>No orientado a objetos</h5>
+						<ul>
+							<li>Reutilizables</li>
+							<li>Componibles</li>
+							<li>Se encarga de la presentación</li>
+							<li>No orientado a objetos</li>
+						</ul>
 					</section>
 					<section>
-						<h2>El componente React</h2>
+						<h2>Un componente React</h2>
 						<pre><code data-trim data-noescape>
 							import React from "react";
 							import Display from "./Display";
@@ -147,36 +151,41 @@
 					</section>
 					<section>
 						<h2>Programación declarativa</h2>
-						<h5>Pasiva, no imperativa</h5>
-						<h5>Segura frente a errores</h5>
-						<h5>Buena para programar interfaces de usuario</h5>
+						<ul>
+							<li>Pasiva, no imperativa</li>
+							<li>Segura frente a errores</li>
+							<li>Buena para programar interfaces de usuario</li>
+						</ul>
 						<aside class="notes">
 							La Programación Declarativa, en contraposición a la Programación Imperativa es un paradigma de programación que está basado en el desarrollo de programas especificando o "declarando" un conjunto de condiciones, proposiciones, afirmaciones, restricciones, ecuaciones o transformaciones que describen el problema y detallan su solución.
 						</aside>
 					</section>
 					<section>
 						<h2>Programación funcional</h2>
-						<h5>Basada en funciones</h5>
-						<h5>Independencia de cada componente</h5>
-						<h5>Cada componente guarda su propio estado</h5>
+						<ul>
+							<li>Basada en funciones</li>
+							<li>Independencia de cada componente</li>
+							<li>Cada componente guarda su propio estado </li>
+						</ul>
 						<aside class="notes">
 							basada en funciones
 						</aside>
 					</section>
 					<section>
-						<h2>Cada componente guarda su propio estado<h2>
-						<h5>Los componentes no se comunican entre sí</h5>
-						<h5>Si nos vemos en la necesidad de comunicar, lo estamos haciendo mal o estamos creando una librería muy avanzada</h5>
-						<h5>Sólo presentación, la lógica y flujo de datos deben ir a parte (Flux, Redux…)</h5>
+						<h2>Independencia de cada componente </h2>
+						<ul>
+							<li>Cada componente guarda su propio estado </li>
+							<li>Los componentes no se comunidan entre si</li>
+							<li>React solo es la parte de presentación, la lógica y el flujo de datos deben ir en la parte de flux o redux </li>
+						</ul>
 					</section>
 					<section>
-						<h2>No se modifica la DOM solamente se sustituye<h2>
-						<h5>Independencia de jQuery</h5>
-						<h5>Virtual DOM</h5>
+						<h2>No se modifica la DOM solamente se sustituye</h2>
+							<ul>
+								<li>Independencia de Jquery</li>
+								<li>Virtual DOM</li>
+							</ul>
 						<img src='img/virtualDOM.png'></img>
-					</section>
-					<section>
-						<h2>Crear componentes</h2>
 					</section>
 				</section>
 				<section>
