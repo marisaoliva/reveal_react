@@ -226,7 +226,6 @@
 							<li>Let: declaración de variables controlando su ambito </li>
 							<li>const: constantes</li>
 						</ul>
-						<h5>async/wait</h5>
 						<h5>Import y export</h5>
 						<h5>Compilado por Babel</h5>
 					</section>
@@ -271,7 +270,7 @@
 					<section>
 						<h2>JSX</h2>
 						<p>Lenguaje de plantillas</p>
-						<p>Soporte inicial para elementos “HTML”</p>
+						<p>Para  implementar  este  DOM  Virtual  y  que  la  experiencia  de  programarlo  no  sea  un  horror,  Facebook  utiliza  la  sintaxis  de  JSX</p>
 					</section>
 					<section>
 						<h2>Eslint</h2>
@@ -300,9 +299,12 @@
 						</p>
 					</section>
 					<section>
-						<h2>Devtools para React y para Redux</h2>
+						<h2>Devtools para React y redux</h2>
 						<img src='img/reacttools.png'>
-					</section>s
+					</section>
+					<section>
+						<img src='img/redux.gif'>
+					</section>
 				</section>
 				<section>
 					<section>
@@ -316,26 +318,6 @@
 					<section>
 						<h2>Componentes y composición</h2>
 						<pre><code data-trim data-noescape>
-							import React from "react";
-						import Display from "./Display";
-						import ButtonPanel from "./ButtonPanel";
-						import calculate from "../logic/calculate";
-						import "./App.css";
-
-						class App extends React.Component {
-						  constructor(props) {
-						    super(props);
-						    this.state = {
-						      total: null,
-						      next: null,
-						      operation: null,
-						    };
-						  }
-
-						  handleClick = buttonName => {
-						    this.setState(calculate(this.state, buttonName));
-						  };
-
 						  render() {
 						    return (
 							&lt;div className=&quot;component-app&quot;&gt;
@@ -344,8 +326,6 @@
 							&lt;/div&gt;
 						    );
 						  }
-						}
-						export default App;
 						</code></pre>
 					</section>
 					<section>
@@ -511,26 +491,29 @@
 					</section>
 					<section>
 						<h2>Ciclo de vida</h2>
-						<img src='img/ciclodevida.png'>
-						willmount y willupate quitado, will
+						<h6>Construcción del componente</h6>
+						<ul>
+					  	<li>componentWillMount -> DEPRECADO</li>
+							<li>componentDidMount</li>
+						</ul>
 					</section>
 					<section>
-						<h2>shouldComponentUpdate</h2>
-						<p>Permite verificar si es necesario renderizar el componente</p>
-						<pre><code data-trim data-noescape>
-							React.createClass({
-							  shouldComponentUpdate: function(nextProps, nextState) {
-							    // You can access `this.props` and `this.state` here
-							    // This function should return a boolean, whether the component should re-render.
-							    return false;
-							  },
-
-							  render: function() {
-							    ...
-							  }
-							});
-						</code></pre>
-
+						<h2>Ciclo de vida</h2>
+						<h6>Actualización</h6>
+						<ul>
+							<li>componentWillReceiveProps -> DEPRECADO</li>
+							<li>componentWillUpdate --> DEPRECADO</li>
+							<li>shouldComponentUpdate</li>
+							<li>componentDidUpdate</li>
+							<li>getDerivedStateFromProps --> NEW</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Ciclo de vida</h2>
+						<h6>Desmontado del componente</h6>
+						<ul>
+							<li>componentWillUnmount</li>
+						</ul>
 					</section>
 					<section>
 						<h2>Listas</h2>
